@@ -15,3 +15,18 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function(){
+  $('.language').click(function(){
+    $(this).toggleClass('btn-default').toggleClass('btn-primary');
+  });
+  $('.search').on('ajax:before', function(event, xhr, status, error) {
+    var ids = [];
+    $('.language.btn-primary').each(function(){
+      ids.push($(this).data('id'));
+    });
+    if(ids.length == 0)
+      return false
+    $(this).data('params', 'ids='+ids)
+  });
+});
