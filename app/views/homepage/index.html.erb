@@ -1,9 +1,9 @@
 <div class="container">
   <div class="languages">
-    <%@languages.in_groups_of(6, false) do |languages|%>
+    <%@languages.in_groups_of(4, false) do |languages|%>
       <div class="row">
         <%languages.each do |language| %>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <%=link_to language.name, "#", class: 'language btn btn-default', id: dom_id(language), data: { id: language.id }%>
           </div>
         <%end%>
@@ -11,7 +11,7 @@
     <%end%>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="search-button col-md-12">
       <%=link_to "Search Companies", companies_path, remote: true, class: 'search btn btn-primary' %>
     </div>
   </div>
