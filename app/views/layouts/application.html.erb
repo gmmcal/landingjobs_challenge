@@ -28,8 +28,8 @@
 
     </script>
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -39,17 +39,19 @@
           </button>
           <%= link_to "Landing Jobs Challenge", root_path, class: "navbar-brand" %>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><%= link_to "Home", root_path%></li>
-            <li><%= link_to "About", readme_path%></li>
-          </ul>
-        </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container">
-      <%=yield%>
+    <div class="container-fluid">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><%= link_to "Home", root_path%></li>
+          <li><%= link_to "About", readme_path%></li>
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <%=yield%>
+      </div>
     </div>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
