@@ -1,6 +1,6 @@
 class HomepageController < ApplicationController
   def index
-    @languages = Language.all
+    @languages = Language.trending
   end
 
   def companies
