@@ -64,6 +64,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
+  gem 'webmock'
 end
 
 # Use Capistrano for deployment

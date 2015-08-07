@@ -12,7 +12,7 @@ module Importer
         import_languages(offers)
       end
 
-      protected
+      # protected
         def get_companies
           endpoint = "/companies.json"
           companies = self.get_json_response(endpoint)
@@ -48,15 +48,17 @@ module Importer
         end
 
         def get_json_response(endpoint)
-          api_url = "http://landing.jobs/api/v1"
+          api_url = "https://landing.jobs/api/v1"
           headers = { Authorization: "Token token=#{ENV['landingjobs_access_token']}" }
           response = RestClient.get "#{api_url}#{endpoint}", headers
           JSON.parse(response.body)
         end
 
         def debug(msg)
-          puts msg
-          Rails.logger.info msg
+          unless Rails.env.test?
+            puts msg
+            Rails.logger.info msg
+          end
         end
     end
   end
