@@ -1,3 +1,4 @@
+require 'rails_helper'
 require 'rest-client'
 require 'webmock/rspec'
 require 'importer/importer'
